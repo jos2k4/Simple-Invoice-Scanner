@@ -2,7 +2,7 @@ from PyPDF2 import PdfReader
 import re
 import pandas as pd
 import os
-
+##
 # temporäre Speicherung
 Speicher = {
     "Rechnungsnummer": None,
