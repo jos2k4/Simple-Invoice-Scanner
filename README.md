@@ -1,5 +1,5 @@
 # Simple-Invoice-Scanner 📄🚀
-Ein schlanker und effizienter Python-Parser, um wichtige Daten aus PDF-Rechnungen zu extrahieren und direkt in einer CSV-Datei zu speichern. Das Tool nutzt RegEx (Regular Expressions) für einen schnellen Volltext-Scan, ohne jede Zeile einzeln iterieren zu müssen.
+Ein schlanker und effizienter Python-Parser, um wichtige Daten aus PDF-Rechnungen zu extrahieren und direkt in einer CSV-Datei zu speichern. Das Tool nutzt RegEx (Regular Expressions) für einen schnellen Volltext-Scan, ohne jede Zeile einzeln iterieren zu müssen. In dem examples Ordner befinden sich 3 Rechngungen im unterschiedlichen Format. Mit diesen kann das Programm getestet werden.
 
 ## ✨ Features
 Volltext-Analyse: Schneller als herkömmliche Zeilen-Loops.
