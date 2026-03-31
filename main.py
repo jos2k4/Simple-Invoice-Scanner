@@ -3,7 +3,7 @@ import re
 import pandas as pd
 
 #Lesbare .pdf wird geladen
-reader = PdfReader("Rechnungsvorlage.pdf")
+reader = PdfReader("examples/muster_rechnung1.pdf")
 page = reader.pages[0]
 #Text wird extrahiert
 text = page.extract_text()
@@ -26,10 +26,10 @@ stop2 = 0
 
 
 #RegEx, um Muster zu erkennen und die richtigen Daten zu filtern
-rechnungs_daten = r"(?:Rechnungs(?:-Nr\.?|nummer)|Re-?Nr\.?|Rechnung|Inv(?:oice)?)\s*[:\-]?\s*(?:Re-)?\s*([A-Z0-9/\-\.]{3,15})"
+rechnungs_daten = r"(?:Rechnungs(?:-Nr\.?|nummer)|Re-?Nr\.?|Rechnung|Inv(?:oice)?)\s*.*?\b([A-Z0-9\-\./]{3,15})"
 mail_muster = r"[\w\.-]+@[\w\.-]+\.(com|de|net|org)"
-Netto = r"(?:Summe\s+)?(?:Netto|netto)\s*(?:€\s*)?[:\-]?\s*([\d.,]+)(?:\s*€)?"
-Brutto = r"(?:Endsumme|Brutto|brutto)\s*(?:€\s*)?[:\-]?\s*([\d.,]+)(?:\s*€)?"
+Netto = r"(?:Netto|netto).*?([\d.]+,\d{2})"
+Brutto = r"(?:Brutto|brutto|Endsumme|Total|Gesamt).*?([\d.]+,\d{2})"
 
 
 #gesamter Text wird nach dem oben definierten Muster gescannt -> Ressourcen sparsamer als ein for loop (keine iteration)
@@ -63,7 +63,7 @@ print(Speicher)
 #Speicher wird zum DataFrame umgewandelt
 df = pd.DataFrame([Speicher])
 
-#DataFrame wird in die .csv Datei geschriebenm
+#DataFrame wird in die Rechnungen.csv Datei geschriebenm
 df.to_csv("Rechnungen.csv", index = False, sep =';' , encoding='utf-8-sig')
 
 
