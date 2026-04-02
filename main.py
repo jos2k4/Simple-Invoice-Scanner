@@ -2,7 +2,7 @@ from PyPDF2 import PdfReader
 import re
 import pandas as pd
 import os
-##
+
 # temporäre Speicherung
 Speicher = {
     "Rechnungsnummer": None,
@@ -11,7 +11,7 @@ Speicher = {
     "Email": None,
 }
 
-#duplicate_check = pd.read_csv("test.csv")
+#duplicate_check = pd.read_csv("test.csv")      -> Prototyp, noch in Arbeit
 
 #Alle PDFs aus dem Ordner examples werden geladen
 os.listdir("examples")
@@ -20,17 +20,13 @@ print(os.listdir("examples"))
 #loop, der für jede file einmal iteriert
 for file in os.listdir("examples"):
 
-    if file.endswith(".pdf"):
+    if file.endswith(".pdf"):       #stellt sicher, dass nur PDFs verarbeitet werden
         print(file)
         # Lesbare .pdf wird geladen
         reader = PdfReader(os.path.join("examples", file))
         page = reader.pages[0]
         # Text wird extrahiert
         text = page.extract_text()
-
-
-
-        print("--- Analyse beendet ---")
 
         # exit flags um doppelte Einträge zu vermeiden
         stop = 0
@@ -42,13 +38,13 @@ for file in os.listdir("examples"):
         Netto = r"(?:Netto|netto).*?([\d.]+,\d{2})"
         Brutto = r"(?:Brutto|brutto|Endsumme|Total|Gesamt).*?([\d.]+,\d{2})"
 
-        # gesamter Text wird nach dem oben definierten Muster gescannt -> Ressourcen sparsamer als ein for loop (keine iteration)
+        # gesamter Text in der PDF wird nach dem oben definierten Muster gescannt
         ergebnis = re.search(rechnungs_daten, text)
         e_mail = re.search(mail_muster, text)
         Netto_Betrag = re.search(Netto, text)
         Brutto_Betrag = re.search(Brutto, text)
 
-        # Sobald ein Muster erkannt wurde werdeb die Daten extrahiert und in den temporären Speicher geladen
+        # Sobald ein Muster erkannt wurde werden die Daten extrahiert und in den temporären Speicher geladen
         if ergebnis and stop == 0:
             print(f"Rechnungsnummer: {ergebnis.group()}")
             Speicher["Rechnungsnummer"] = ergebnis.group(1)
@@ -57,7 +53,7 @@ for file in os.listdir("examples"):
         if e_mail and stop2 == 0:
             print(f"E-Mail: {e_mail.group()}")
             Speicher["Email"] = e_mail.group()
-            stop2 = 1
+            stop2 = 1       #exit flag
 
         if Netto_Betrag:
             print(f"Netto: {Netto_Betrag.group()}")
