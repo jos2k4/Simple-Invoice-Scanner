@@ -41,7 +41,7 @@ Der Parser ist aktuell auf folgende Formate optimiert:
 
 Rechnungsnummern: z.B. Re-147/2025, M1675, INV-202 connection.
 
-Beträge: Erkennt die 4 größten Währungen (€,£,¥,$).
+Beträge: Erkennt die 4 größten Währungen (€,£,¥,$). Rechnungen werden immer in € umgerechnet.
 
 E-Mails: Standardmäßige Validierung von .com, .de, .net, .org. Wenn keine vorhanden ist wird das so vermerkt
 
