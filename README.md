@@ -51,9 +51,9 @@ Hier ein Ausblick auf die Funktionen, die gerade entwickelt werden:
 
 [✅] Ordner-Scan (Batch Processing): Automatische Analyse aller PDFs in einem angegebenen Verzeichnis, statt nur einer Datei.
 
-[ ] Betrags-Konvertierung: Umwandlung der Text-Beträge (z.B. "1.200,50") in echte Zahlen (float), um direkt Berechnungen durchzuführen.
+[✅] Betrags-Konvertierung: Umwandlung der Text-Beträge (z.B. "1.200,50") in echte Zahlen (float), um direkt Berechnungen durchzuführen.
 
-[ ] Währungserkennung: Automatische Unterscheidung zwischen €, $ und anderen Währungen.
+[✅ ] Währungserkennung: Automatische Unterscheidung zwischen €, $ und anderen Währungen.
 
 [ ] Dubletten-Check: Prüfung, ob eine Rechnungsnummer bereits in der CSV existiert, um doppelte Einträge zu vermeiden.
 
