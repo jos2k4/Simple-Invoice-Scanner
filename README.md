@@ -1,5 +1,5 @@
 # Simple-Invoice-Scanner 📄🚀
-Ein schlanker und effizienter Python-Parser, um wichtige Daten aus PDF-Rechnungen zu extrahieren und direkt in einer CSV-Datei zu speichern. Das Tool nutzt RegEx (Regular Expressions) für einen schnellen Volltext-Scan, ohne jede Zeile einzeln iterieren zu müssen. In dem examples Ordner befinden sich 3 Rechngungen im unterschiedlichen Format. Mit diesen kann das Programm getestet werden.
+Ein schlanker und effizienter Python-Parser, um wichtige Daten aus PDF-Rechnungen zu extrahieren und direkt in einer CSV-Datei zu speichern. Das Tool nutzt RegEx (Regular Expressions) für einen schnellen Volltext-Scan, ohne jede Zeile einzeln iterieren zu müssen. In dem examples Ordner befinden sich Muster Rechngungen im unterschiedlichen Format. Mit diesen kann das Programm getestet werden.
 
 ## ✨ Features
 Volltext-Analyse: Schneller als herkömmliche Zeilen-Loops.
@@ -30,20 +30,20 @@ pip install PyPDF2 pandas
 
 2. Nutzung
 
-Lege deine Rechnung als Rechnungsvorlage.pdf in den Projektordner.
+Lege deine Rechnung als .pdf in den examples Ordner.
 
 Starte das Skript:
 
-Die extrahierten Daten findest du sofort in der neu erstellten test.csv.
+Die extrahierten Daten findest du sofort in der neu erstellten .csv.
 
 ## 🔍 Unterstützte Muster
 Der Parser ist aktuell auf folgende Formate optimiert:
 
 Rechnungsnummern: z.B. Re-147/2025, M1675, INV-202 connection.
 
-Beträge: Erkennt deutsche Formate (z.B. 2.840,00 € oder Summe Netto 186,99).
+Beträge: Erkennt die 4 größten Währungen (€,£,¥,$).
 
-E-Mails: Standardmäßige Validierung von .com, .de, .net, .org.
+E-Mails: Standardmäßige Validierung von .com, .de, .net, .org. Wenn keine vorhanden ist wird das so vermerkt
 
 ## 🚧 Roadmap
 
